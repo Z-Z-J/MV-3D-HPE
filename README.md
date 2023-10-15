@@ -6,7 +6,7 @@ To install requirements:
 
 ```setup
 #1. Create a conda virtual environment.
-conda create -n mvhpe python=3.6.10
+conda create -n mvhpe python=3.7.11
 conda activate mvhpe
 
 #2. Install requirements.
@@ -15,25 +15,30 @@ pip install -r requirements.txt
 
 ## Preparing Data and Rre-trained model
 1. Download the required data.
-   * Download our smpliks_db from [Google Drive]() 
-   * Download our smpliks_data from [Google Drive]()
-   * Download our pretrained model from [Google Drive]()
+   * Download our data from [Google Drive](https://drive.google.com/drive/folders/1Z6-fLuANi2Y67w-VZrx-oG_K9IrSINtK?usp=sharing) 
+   * Download our pretrained model from [Google Drive](https://drive.google.com/drive/folders/1zxcGUvszOH2Sh1JOa_cSvHdNyRdwBwpO?usp=sharing)
    
 2. You need to follow directory structure of the `data` as below.
 ```
 |-- data
-`-- |-- amass_train_db.pt
-    `-- amss_test_db.pt
-    `-- 3dpw_test_db.pt
-    `-- agora_test_db.pt
+`-- |-- h36m_sub1.npz
+    `-- ...
+    `-- h36m_sub11.npz
+    `-- score.pkl
+|-- checkpoint
+`-- |-- h36m_cpn_uncalibration.pth
+    `-- h36m_gt_uncalibration.pth
+    `-- h36m_cpn_calibration.pth
 ```
+
 ## Evaluation
 
 To evaluate our model, run:
 
 ```eval
-python eval_si_apr_hybrik.py --cfg configs/config_eval.yaml
-python eval_si_apr_analyik.py --cfg config/config_eval.yaml
+python eval_h36m_cpn_uncalibration.py --test --resume --previous_dir ./checkpoint/h36m_cpn_uncalibration.pth --gpu 0
+python eval_h36m_gt_uncalibration.py --test --resume --previous_dir ./checkpoint/h36m_gt_uncalibration.pth --gpu 0
+python eval_h36m_cpn_calibration.py --test --resume --previous_dir ./checkpoint/h36m_cpn_calibration.pth --gpu 0
 ```
 ## Results
 
@@ -41,9 +46,9 @@ Our model achieves the following performance on Human3.6M:
 
 | Methods            |Camera     |MPJPE|
 | -------------------|-----------|------------|
-| Ours (CPN, T=27)   |Uncalibration|     -    |      
-| Ours (GT, T=27)    |Uncalibration|     -    |  
-| Ours (CPN, T=27)   |Calibration  |     -    |  
+| Ours (CPN, T=27)   |Uncalibration|     24.5mm |      
+| Ours (GT, T=27)    |Uncalibration|     5.2mm  |  
+| Ours (CPN, T=27)   |Calibration  |     23.8mm |  
 
 ## License
 By downloading and using this code you agree to the terms in the [LICENSE](LICENSE). Third-party datasets and software are subject to their respective licenses.
