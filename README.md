@@ -39,9 +39,9 @@ pip install -r requirements.txt
 To evaluate our model, run:
 
 ```eval
-python eval_h36m_cpn_uncalibration.py --test --previous_dir ./checkpoint/h36m_cpn_uncalibration.pth --root_path /home/zzj/TMM/MV-3D-HPE/data/ --gpu 0
-python eval_h36m_gt_uncalibration.py --test --previous_dir ./checkpoint/h36m_gt_uncalibration.pth --root_path /home/zzj/TMM/MV-3D-HPE/data/ --gpu 0
-python eval_h36m_cpn_calibration.py --test --previous_dir ./checkpoint/h36m_cpn_calibration.pth --root_path /home/zzj/TMM/MV-3D-HPE/data/ --gpu 0
+python eval_h36m_cpn_uncalibration.py --test --out_chans 3 --previous_dir ./checkpoint/h36m_cpn_uncalibration.pth --root_path /home/zzj/TMM/MV-3D-HPE/data/ --gpu 0
+python eval_h36m_gt_uncalibration.py --test --in_chans 2 --previous_dir ./checkpoint/h36m_gt_uncalibration.pth --root_path /home/zzj/TMM/MV-3D-HPE/data/ --gpu 0
+python eval_h36m_cpn_calibration.py --test --out_chans 2 --previous_dir ./checkpoint/h36m_cpn_calibration.pth --root_path /home/zzj/TMM/MV-3D-HPE/data/ --gpu 0
 ```
 ## Results
 
