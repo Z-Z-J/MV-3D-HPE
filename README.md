@@ -21,7 +21,7 @@ pip install -r requirements.txt
    * Download our data from [Google Drive](https://drive.google.com/drive/folders/1Z6-fLuANi2Y67w-VZrx-oG_K9IrSINtK?usp=sharing) 
    * Download our pretrained model from [Google Drive](https://drive.google.com/drive/folders/1zxcGUvszOH2Sh1JOa_cSvHdNyRdwBwpO?usp=sharing)
    
-2. You need to follow directory structure of the `data` as below.
+2. You need to add the `data` and  `checkpoint` as below.
 ```
 |-- data
 `-- |-- h36m_sub1.npz
