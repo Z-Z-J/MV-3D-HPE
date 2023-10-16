@@ -9,7 +9,10 @@ To install requirements:
 conda create -n mvhpe python=3.7.11
 conda activate mvhpe
 
-#2. Install requirements.
+#2. Install Pytorch
+pip install torch==1.8.1+cu101 torchvision==0.9.1+cu101 torchaudio==0.8.1 -f https://download.pytorch.org/whl/torch_stable.html
+
+#3. Install requirements.
 pip install -r requirements.txt
 ```
 
@@ -36,9 +39,9 @@ pip install -r requirements.txt
 To evaluate our model, run:
 
 ```eval
-python eval_h36m_cpn_uncalibration.py --test --resume --previous_dir ./checkpoint/h36m_cpn_uncalibration.pth --gpu 0
-python eval_h36m_gt_uncalibration.py --test --resume --previous_dir ./checkpoint/h36m_gt_uncalibration.pth --gpu 0
-python eval_h36m_cpn_calibration.py --test --resume --previous_dir ./checkpoint/h36m_cpn_calibration.pth --gpu 0
+python eval_h36m_cpn_uncalibration.py --test --previous_dir ./checkpoint/h36m_cpn_uncalibration.pth --root_path /home/zzj/TMM/MV-3D-HPE/data/ --gpu 0
+python eval_h36m_gt_uncalibration.py --test --previous_dir ./checkpoint/h36m_gt_uncalibration.pth --root_path /home/zzj/TMM/MV-3D-HPE/data/ --gpu 0
+python eval_h36m_cpn_calibration.py --test --previous_dir ./checkpoint/h36m_cpn_calibration.pth --root_path /home/zzj/TMM/MV-3D-HPE/data/ --gpu 0
 ```
 ## Results
 
