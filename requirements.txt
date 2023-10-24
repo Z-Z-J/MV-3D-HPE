@@ -1,0 +1,6 @@
+einops==0.6.1
+ptflops==0.7
+segment==0.2.0
+thop==0.0.31.post2005241907
+timm==0.5.4
+tqdm==4.63.1
