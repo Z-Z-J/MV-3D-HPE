@@ -39,8 +39,8 @@ pip install -r requirements.txt
 To evaluate our model, run:
 
 ```eval
-python eval_h36m_cpn_uncalibration.py --test --out_chans 3 --previous_dir ./checkpoint/h36m_cpn_uncalibration.pth --root_path /home/zzj/TMM/MV-3D-HPE/data/ --gpu 0
 python eval_h36m_gt_uncalibration.py --test --in_chans 2 --previous_dir ./checkpoint/h36m_gt_uncalibration.pth --root_path /home/zzj/TMM/MV-3D-HPE/data/ --gpu 0
+python eval_h36m_cpn_uncalibration.py --test --out_chans 3 --previous_dir ./checkpoint/h36m_cpn_uncalibration.pth --root_path /home/zzj/TMM/MV-3D-HPE/data/ --gpu 0
 python eval_h36m_cpn_calibration.py --test --out_chans 2 --previous_dir ./checkpoint/h36m_cpn_calibration.pth --root_path /home/zzj/TMM/MV-3D-HPE/data/ --gpu 0
 ```
 ## Results
@@ -49,9 +49,16 @@ Our model achieves the following performance on Human3.6M:
 
 | Methods            |Camera     |MPJPE|
 | -------------------|-----------|------------|
-| Ours (CPN, T=27)   |Uncalibration|     24.5mm |      
-| Ours (GT, T=27)    |Uncalibration|     5.2mm  |  
-| Ours (CPN, T=27)   |Calibration  |     23.8mm |  
+| Ours (GT, T=27)   |Uncalibration|     5.2mm |      
+| Ours (CPN, T=27)  |Uncalibration|     24.5mm  |  
+| Ours (CPN, T=27)  |Calibration  |     23.8mm |  
+
+## ToDos:
+
+Implement the functions to
+
+- [x] We will provide training code after the paper is accepted.
+
 
 ## License
 By downloading and using this code you agree to the terms in the [LICENSE](LICENSE). Third-party datasets and software are subject to their respective licenses.
