@@ -1,5 +1,5 @@
-# Deep Geometry Analysis for Multi-View 3D Human Pose Estimation
-This repository is the official implementation of [Deep Geometry Analysis for Multi-View 3D Human Pose Estimation]. 
+# Deep Geometry Analysis for Uncalibrated Multi-View 3D Human Pose Estimation
+This repository is the official implementation of [Deep Geometry Analysis for Uncalibrated Multi-View 3D Human Pose Estimation]. 
 ## Requirements
 
 To install requirements:
